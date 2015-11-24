@@ -57,6 +57,7 @@ public class Program extends Configured implements Tool
 		/* Input & output directories have been captured to parse the input & post the output */
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
+		//Added a comment
 
 		/* Returns the job's success or failure to the main method */
 		return job.waitForCompletion(true) ? 0 : 1;
