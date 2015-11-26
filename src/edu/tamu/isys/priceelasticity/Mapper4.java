@@ -17,7 +17,7 @@ public class Mapper4 extends Mapper<LongWritable, Text, Text, Text>
 		
 		try
 		{
-			
+			BookEntry entry = new BookEntry(inputData);
 		}
 		catch(Exception e)
 		{
