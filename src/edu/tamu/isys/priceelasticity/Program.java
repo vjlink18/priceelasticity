@@ -1,4 +1,4 @@
-1package edu.tamu.isys.priceelasticity;
+package edu.tamu.isys.priceelasticity;
 
 /* Imports have been organised for Program Class */
 import org.apache.hadoop.conf.Configuration;
@@ -80,14 +80,10 @@ public class Program extends Configured implements Tool
 		job2.setOutputKeyClass(Text.class);
 		job2.setOutputValueClass(Text.class);
 
-		FileInputFormat.addInputPath(job2, new Path(args[0]));
-		FileOutputFormat.setOutputPath(job2, new Path(args[1]));
-		/* Uncomment when multiple jobs running
+		FileInputFormat.addInputPath(job2, new Path(OUTPUT1);
 		FileOutputFormat.setOutputPath(job2, new Path(OUTPUT2));
 		job2.waitForCompletion(true);
 		
-
-		return job2.waitForCompletion(true) ? 0 : 1;
 		/* Job 2 properties end 
 
 		/* Job 3 properties 
@@ -106,14 +102,10 @@ public class Program extends Configured implements Tool
 		job3.setOutputKeyClass(Text.class);
 		job3.setOutputValueClass(Text.class);
 
-		FileInputFormat.addInputPath(job3, new Path(args[0]));
-		FileOutputFormat.setOutputPath(job3, new Path(args[1]));
-		/* Uncomment when multiple jobs running
+		FileInputFormat.addInputPath(job3, new Path(OUTPUT2);
 		FileOutputFormat.setOutputPath(job3, new Path(OUTPUT3));
 		job3.waitForCompletion(true);
 		
-
-		return job3.waitForCompletion(true) ? 0 : 1;
 		/* Job 3 properties end
 
 		/* Job 4 properties 
@@ -132,7 +124,7 @@ public class Program extends Configured implements Tool
 		job4.setOutputKeyClass(Text.class);
 		job4.setOutputValueClass(Text.class);
 
-		FileInputFormat.addInputPath(job4, new Path(args[0]));
+		FileInputFormat.addInputPath(job4, new Path(OUTPUT3);
 		FileOutputFormat.setOutputPath(job4, new Path(args[1]));		
 
 		return job4.waitForCompletion(true) ? 0 : 1;
