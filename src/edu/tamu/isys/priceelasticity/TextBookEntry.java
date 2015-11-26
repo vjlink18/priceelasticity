@@ -7,7 +7,6 @@ public class TextBookEntry extends BookEntry {
 	
 	public TextBookEntry(String rawData) throws ParseException {
 		super(rawData);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public String getEdition()
