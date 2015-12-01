@@ -10,6 +10,7 @@ public class BookEntry {
 	private String publishingDate= "";
 	private String price= "";
 	private String errorMessage = "";
+	private String authors="";
 	
 	public BookEntry (String rawData) throws ParseException
 	{
@@ -57,6 +58,23 @@ public class BookEntry {
 	public String getPrice()
 	{
 		return price;
+	}
+	public String getAuthor()
+	{
+		return authors;
+	}
+	
+	public String[] getAuthors()
+	{
+		int loop_var;
+		String[] authorList = authors.split(",");
+		
+		/* Code optimized for efficiency by using ++loop_var to speed up for loop processing*/
+		for(loop_var=0; loop_var < authorList.length; ++loop_var)
+		{
+			authorList[loop_var] = authorList[loop_var].trim();
+		}
+		return authorList;
 	}
 	
 	/* Method to return Error Message as string */
