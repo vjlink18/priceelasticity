@@ -8,7 +8,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class Mapper1 extends Mapper<LongWritable, Text, Text, Text> {
+public class Mapper1_Elasticity extends Mapper<LongWritable, Text, Text, Text> {
 	/*
 	 * For improving efficiency of the program, variables have been declared
 	 * outside the methods to optimize the processing

@@ -9,7 +9,7 @@ import java.util.List;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class Reducer1 extends Reducer<Text, Text, Text, Text> {
+public class Reducer1_Elasticity extends Reducer<Text, Text, Text, Text> {
 	/*
 	 * For improving efficiency of the program, variables have been declared
 	 * outside the methods to optimize the processing

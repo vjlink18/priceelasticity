@@ -1,4 +1,4 @@
-package edu.tamu.isys.pricing;
+package edu.tamu.isys.priceelasticity;
 
 /*
  * This is mapper class to convert the input from file into key value pairs 
@@ -14,7 +14,7 @@ import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.apache.hadoop.io.Text;
 
 
-public class MyMapper extends Mapper < LongWritable, Text, Text, Text > {
+public class Mapper3_IndvPrices extends Mapper < LongWritable, Text, Text, Text > {
 
 	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		

@@ -1,3 +1,4 @@
+package edu.tamu.isys.priceelasticity;
 
 public class ForecastPrediction {
 

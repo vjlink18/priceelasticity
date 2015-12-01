@@ -40,8 +40,8 @@ public class Program extends Configured implements Tool
 		Job job1 = Job.getInstance(getConf(), "job 1");
 		job1.setJarByClass(Program.class);
 		
-		job1.setMapperClass(Mapper1.class);
-		job1.setReducerClass(Reducer1.class);
+		job1.setMapperClass(Mapper1_Elasticity.class);
+		job1.setReducerClass(Reducer1_Elasticity.class);
 		
 		job1.setInputFormatClass(TextInputFormat.class);
 		job1.setOutputFormatClass(TextOutputFormat.class);

@@ -1,6 +1,7 @@
+package edu.tamu.isys.priceelasticity;
+
 import java.io.IOException;
 
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -17,7 +18,7 @@ import org.apache.hadoop.mapreduce.Mapper;
  *   type for the reducer)
  */
 
-public class ForecastMapper extends Mapper<LongWritable, Text, Text, Text> {
+public class Mapper2_Forecast extends Mapper<LongWritable, Text, Text, Text> {
 
   /*
    * The map method runs once for each line of text in the input file.

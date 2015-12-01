@@ -1,4 +1,4 @@
-package edu.tamu.isys.pricing;
+package edu.tamu.isys.priceelasticity;
 
 /*
  * This is reducer class to convert the input from Mapper into key value pairs 
@@ -12,7 +12,7 @@ import java.io.IOException;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class MyReducer extends Reducer < Text, Text, Text, Text > {
+public class Reducer3_IndvPrices extends Reducer < Text, Text, Text, Text > {
 
 
 	public void reduce(Text key,  Text  values, Context context) throws IOException, InterruptedException {

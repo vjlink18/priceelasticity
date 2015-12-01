@@ -1,3 +1,5 @@
+package edu.tamu.isys.priceelasticity;
+
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.*;
@@ -24,7 +26,7 @@ import org.apache.hadoop.mapreduce.Reducer;
  *   The data type of the output key
  *   The data type of the output value
  */   
-public class ForecastReducer extends Reducer<Text, Text, Text, Text> {
+public class Reducer2_Forecast extends Reducer<Text, Text, Text, Text> {
 
   /*
    * The reduce method runs once for each key received from
