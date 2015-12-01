@@ -13,6 +13,7 @@ public class BookEntry {
 	private String origPubPrice = "";
 	private String growthRate = "";
 	private String authors="";
+
 	private String publishYear="";
 	
 	private String errorMessage = "";

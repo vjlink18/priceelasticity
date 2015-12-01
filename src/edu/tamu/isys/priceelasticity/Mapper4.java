@@ -10,18 +10,20 @@ import org.apache.hadoop.io.Text;
 public class Mapper4 extends Mapper<LongWritable, Text, Text, Text>
 {
 	/* For improving efficiency of the program, variables have been declared outside the methods to optimize the processing */
+	private String rawData = "";
+	private Text newKey;
+	private Text newValue;
 	
 	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException
 	{
-		String inputData = value.toString();
+		rawData = value.toString();
 		
 		try
 		{
-			BookEntry entry = new BookEntry(inputData);
-			if((!entry.hasError()) && (!entry.getTitle().isEmpty()) && (!entry.getPublisher().isEmpty()) && (!entry.getPrice().isEmpty()))
-			{
-				
-			}
+			String[] inputText = rawData.split(" ");
+			newKey = new Text(inputText[0]);
+			newValue = new Text(inputText[1]);
+			context.write(newKey, newValue);
 		}
 		catch(Exception e)
 		{
