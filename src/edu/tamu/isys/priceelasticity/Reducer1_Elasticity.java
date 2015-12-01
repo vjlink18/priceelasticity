@@ -55,7 +55,7 @@ public class Reducer1_Elasticity extends Reducer<Text, Text, Text, Text> {
 			qStart = qEnd;
 			System.out.println("pStart New: " + pStart + "qStart" + qStart);
 			finalKeyVal = oldValueSplit[0] + "_" + oldValueSplit[1] + "_" + oldValueSplit[2] + "_" + oldValueSplit[3]
-					+ "_" + oldValueSplit[4] + "_" + oldValueSplit[5] + "_" + oldValueSplit[6] + "_" + eta;
+					+ "_" + oldValueSplit[4] + "_" + oldValueSplit[5] + "_" + oldValueSplit[6] + "_" + eta+"_"+oldValueSplit[7];
 
 			System.out.println("final key value: " + finalKeyVal);
 

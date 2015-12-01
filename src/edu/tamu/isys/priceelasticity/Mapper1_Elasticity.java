@@ -29,7 +29,7 @@ public class Mapper1_Elasticity extends Mapper<LongWritable, Text, Text, Text> {
 				bookID = bookEntry.getBookID();
 				keyValue = bookEntry.getDataMonth() + "_" + bookEntry.getBookName() + "_" + bookEntry.getPrice() + "_"
 						+ bookEntry.getQuantity() + "_" + bookEntry.getBookType() + "_" + bookEntry.getOrigPubPrice()
-						+ "_" + bookEntry.getGrowthRate();
+						+ "_" + bookEntry.getGrowthRate()+"_"+bookEntry.getPublishYear();
 				// BookId is the key and a string of Monthweek, price and
 				// quantity is the value
 				System.out.println("book ID: " + bookID + "keyValue: " + keyValue);

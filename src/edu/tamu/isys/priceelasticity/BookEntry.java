@@ -12,7 +12,9 @@ public class BookEntry {
 	private String bookType = "";
 	private String origPubPrice = "";
 	private String growthRate = "";
-
+	private String authors="";
+	private String publishYear="";
+	
 	private String errorMessage = "";
 
 	public BookEntry(String rawData) throws ParseException {
@@ -27,6 +29,7 @@ public class BookEntry {
 			this.bookType = parts[5].trim();
 			this.origPubPrice = parts[6].trim();
 			this.growthRate = parts[7].trim();
+			this.publishYear=parts[8].trim();
 		} catch (Exception e) {
 			errorMessage = e.getStackTrace().toString() + ":" + rawData;
 			System.out.println(errorMessage);
@@ -73,6 +76,10 @@ public class BookEntry {
 		return growthRate;
 	}
 
+	/* Method to return Publish Year */
+	public String getPublishYear() {
+		return publishYear;
+	}
 	public String getAuthor()
 	{
 		return authors;
