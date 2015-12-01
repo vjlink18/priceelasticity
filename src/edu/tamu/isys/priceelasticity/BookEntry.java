@@ -17,6 +17,7 @@ public class BookEntry {
 
 	public BookEntry(String rawData) throws ParseException {
 		try {
+
 			String[] parts = rawData.split("::");
 			this.dataMonth = parts[0].trim();
 			this.bookID = parts[1].trim();
@@ -70,6 +71,24 @@ public class BookEntry {
 	/* Method to return Book Growth Rate */
 	public String getGrowthRate() {
 		return growthRate;
+	}
+
+	public String getAuthor()
+	{
+		return authors;
+	}
+
+	public String[] getAuthors()
+	{
+		int loop_var;
+		String[] authorList = authors.split(",");
+
+		/* Code optimized for efficiency by using ++loop_var to speed up for loop processing*/
+		for(loop_var=0; loop_var < authorList.length; ++loop_var)
+		{
+			authorList[loop_var] = authorList[loop_var].trim();
+		}
+		return authorList;
 	}
 
 	/* Method to return Error Message as string */

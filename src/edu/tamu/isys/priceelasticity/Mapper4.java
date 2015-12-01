@@ -18,6 +18,10 @@ public class Mapper4 extends Mapper<LongWritable, Text, Text, Text>
 		try
 		{
 			BookEntry entry = new BookEntry(inputData);
+			if((!entry.hasError()) && (!entry.getTitle().isEmpty()) && (!entry.getPublisher().isEmpty()) && (!entry.getPrice().isEmpty()))
+			{
+				
+			}
 		}
 		catch(Exception e)
 		{
