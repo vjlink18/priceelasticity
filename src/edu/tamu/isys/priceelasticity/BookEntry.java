@@ -1,5 +1,10 @@
 package edu.tamu.isys.priceelasticity;
 
+/*
+ * This is Book Entry class to convert the string of values separated by "::" to get individual values of data attributes like book name, book price and so on.
+ * 
+ */
+
 import java.text.ParseException;
 
 public class BookEntry {
@@ -12,10 +17,9 @@ public class BookEntry {
 	private String bookType = "";
 	private String origPubPrice = "";
 	private String growthRate = "";
-	private String authors="";
+	private String authors = "";
+	private String publishYear = "";
 
-	private String publishYear="";
-	
 	private String errorMessage = "";
 
 	public BookEntry(String rawData) throws ParseException {
@@ -30,7 +34,7 @@ public class BookEntry {
 			this.bookType = parts[5].trim();
 			this.origPubPrice = parts[6].trim();
 			this.growthRate = parts[7].trim();
-			this.publishYear=parts[8].trim();
+			this.publishYear = parts[8].trim();
 		} catch (Exception e) {
 			errorMessage = e.getStackTrace().toString() + ":" + rawData;
 			System.out.println(errorMessage);
@@ -81,19 +85,16 @@ public class BookEntry {
 	public String getPublishYear() {
 		return publishYear;
 	}
-	public String getAuthor()
-	{
+	public String getAuthor() {
 		return authors;
 	}
 
-	public String[] getAuthors()
-	{
+	public String[] getAuthors() {
 		int loop_var;
 		String[] authorList = authors.split(",");
 
 		/* Code optimized for efficiency by using ++loop_var to speed up for loop processing*/
-		for(loop_var=0; loop_var < authorList.length; ++loop_var)
-		{
+		for (loop_var = 0; loop_var < authorList.length; ++loop_var) {
 			authorList[loop_var] = authorList[loop_var].trim();
 		}
 		return authorList;

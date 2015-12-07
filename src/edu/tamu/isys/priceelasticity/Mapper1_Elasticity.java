@@ -1,5 +1,11 @@
 package edu.tamu.isys.priceelasticity;
 
+/*
+ * This is mapper class to convert the input from a text file into key value pairs 
+ * output format for mapper is as follows 
+ * key =  BookID , value = list of all the corresponding values.
+ */
+
 /* Imports have been organized for Mapper Class */
 import java.io.IOException;
 import java.text.ParseException;
@@ -8,34 +14,35 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class Mapper1_Elasticity extends Mapper<LongWritable, Text, Text, Text> {
-	/*
-	 * For improving efficiency of the program, variables have been declared
-	 * outside the methods to optimize the processing
-	 */
-
+public class Mapper1_Elasticity extends Mapper <LongWritable, Text, Text, Text> 
+{
+	String rawData;
+	
 	@Override
-	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-
-		System.out.println("Mapper started");
-		String rawData = value.toString();
+	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException 
+	{
+		rawData = value.toString();
 		BookEntry bookEntry;
-		try {
+		
+		try 
+		{
 			bookEntry = new BookEntry(rawData);
-			if (!bookEntry.hasError()) {
-				System.out.println("Inside If condition");
+			
+			if (!bookEntry.hasError()) 
+			{
 				String keyValue = "";
 				String bookID = "";
 				bookID = bookEntry.getBookID();
-				keyValue = bookEntry.getDataMonth() + "_" + bookEntry.getBookName() + "_" + bookEntry.getPrice() + "_"
-						+ bookEntry.getQuantity() + "_" + bookEntry.getBookType() + "_" + bookEntry.getOrigPubPrice()
-						+ "_" + bookEntry.getGrowthRate()+"_"+bookEntry.getPublishYear();
+				keyValue = bookEntry.getDataMonth() + "_" + bookEntry.getBookName() + "_" + bookEntry.getPrice() + "_" + bookEntry.getQuantity() + "_" + bookEntry.getBookType() + "_" + bookEntry.getOrigPubPrice() + "_" + bookEntry.getGrowthRate() + "_" + bookEntry.getPublishYear();
+				
 				// BookId is the key and a string of Monthweek, price and
 				// quantity is the value
-				System.out.println("book ID: " + bookID + "keyValue: " + keyValue);
 				context.write(new Text(bookID), new Text(keyValue));
 			}
-		} catch (ParseException e) {
+			
+		} 
+		catch (ParseException e) 
+		{
 			e.printStackTrace();
 		}
 

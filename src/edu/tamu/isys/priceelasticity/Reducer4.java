@@ -1,9 +1,10 @@
 package edu.tamu.isys.priceelasticity;
 
-/* Imports have been organized for RatingsReducer Class */
 import java.io.IOException;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
+import java.awt.Desktop;
+import java.net.URI;
 
 public class Reducer4 extends Reducer<Text, Text, Text, Text> 
 {
@@ -27,19 +28,19 @@ public class Reducer4 extends Reducer<Text, Text, Text, Text>
 	private String isCurrent="";
 	private String yearOfPublishing="";
 	
+	@Override
 	public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException
 	{
-		//P=w1*p1+w2*p2
-		double W1=0.5;
-		double W2=0.5;
-		//    0 1 2 3 4  5   6  7 8  9     10          11  12 13  14 15
-		//B, DM_b_p_q_bt_opp_GR_e_p'_boolC_publishYear_P12_P3_w12_w3_pideal(currently save each line like this by solving for 2 unknowns for weigths datamonth Dec current and future for a book)
+		//Assigning weights to compute prices
+		double W1=0.7;
+		double W2=0.3;
 		
 		for(Text value : values)
 		{
 			lineText = value.toString();
 			parts = lineText.split("\\_");
 			
+			//Parsing raw input into variables
 			dataMonth=parts[0];
 			book=parts[1];
 			price=parts[2];
@@ -59,5 +60,17 @@ public class Reducer4 extends Reducer<Text, Text, Text, Text>
 			newValue=new Text(newValueString);
 			context.write(key, newValue);
 		}
+		try
+		{
+			if(Desktop.isDesktopSupported())
+			{
+			  Desktop.getDesktop().browse(new URI("http://priceelasticity.azurewebsites.net/"));
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+
 	}
 }

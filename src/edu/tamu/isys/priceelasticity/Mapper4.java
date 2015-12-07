@@ -7,26 +7,24 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.io.Text;
 
-public class Mapper4 extends Mapper<LongWritable, Text, Text, Text>
+public class Mapper4 extends Mapper <LongWritable, Text, Text, Text> 
 {
-	/* For improving efficiency of the program, variables have been declared outside the methods to optimize the processing */
+	
 	private String rawData = "";
 	private Text newKey;
 	private Text newValue;
-	
-	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException
-	{
+
+	@Override
+	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		rawData = value.toString();
-		
-		try
+		try 
 		{
-			String[] inputText = rawData.split(" ");
+			String[] inputText = rawData.split("\\t");
 			newKey = new Text(inputText[0]);
 			newValue = new Text(inputText[1]);
 			context.write(newKey, newValue);
-		}
-		catch(Exception e)
-		{
+		} 
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

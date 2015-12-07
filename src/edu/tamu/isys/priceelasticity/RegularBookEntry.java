@@ -9,10 +9,12 @@ public class RegularBookEntry extends BookEntry {
 		super(rawData);
 	}
 
+	@Override
 	public String getAuthor() {
 		return authors;
 	}
 
+	@Override
 	public String[] getAuthors() {
 		int loop_var;
 		String[] authorList = authors.split(",");
